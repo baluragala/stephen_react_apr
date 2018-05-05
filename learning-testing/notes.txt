@@ -1,0 +1,22 @@
+Testing framework
+-----------------
+
+unit testing test api
+unit test runner
+assertion library
+matchers
+mocking support
+
+Jest -> by facebook ( Jasmine )
+
+Terminoloy
+----------
+Suite -> group of tests
+Spec -> single test
+Assetion -> expect
+
+Suite
+----
+describe('description',()=>{
+    
+})

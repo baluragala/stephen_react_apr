@@ -6,10 +6,11 @@ import Clock from "./Clock";
 import ProductListItem from "./components/ProductListItem";
 import Cart from "./components/Cart";
 import ManageProduct from "./components/ManageProduct";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Nav from "./components/Nav";
+import ProductDetail from "./components/ProductDetail";
 class App extends Component {
   constructor() {
     super();
@@ -64,9 +65,17 @@ class App extends Component {
           cartCount={this.state.cart.length}
           cartValue={this.state.cart.reduce((total, p) => total + p.price, 0)}
         />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/products" render={this.renderProducts} />
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route exact path="/products" render={this.renderProducts} />
+          <Route path="/products/:pname" component={ProductDetail} />
+          <Route
+            render={() => (
+              <h3>Sorry, we dont have what you are looking for!!!</h3>
+            )}
+          />
+        </Switch>
       </div>
     );
   }

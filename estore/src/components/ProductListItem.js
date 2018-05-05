@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class ProductListItem extends React.Component {
   constructor() {
@@ -36,7 +37,9 @@ class ProductListItem extends React.Component {
     console.log("render");
     return (
       <div style={styles}>
-        <h2>{product.title}</h2>
+        <h2>
+          <Link to={`/products/${product.title}`}>{product.title}</Link>
+        </h2>
         <p>{product.description}</p>
         <h3>{product.price} USD</h3>
         <button onClick={() => addToCart(product)}>ADD TO CART</button>
